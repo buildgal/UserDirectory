@@ -35,6 +35,26 @@ function TodoList() {
     inputRef.current.value = "";
   };
 
+  //search function from WW3 Schools 
+  //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_filter_list
+
+function searchFunction() {
+    let input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");//connect this to the ui 
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
   return (
     <div className="container text-center">
       <h1>Employee Directory</h1>
@@ -66,7 +86,14 @@ function TodoList() {
       </ul>
       <SearchForm>
 
+      <button
+              className="btn btn-danger ml-5"
+              onClick= {searchFunction}>
+                Search Employees 
+            </button>
+     
       </SearchForm>
+
 
       <DropdownButton id="dropdown-basic-button" title="Search By">
       <Dropdown.Item href="#/action-1">Job Title</Dropdown.Item>
