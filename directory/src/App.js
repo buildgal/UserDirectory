@@ -1,6 +1,8 @@
 import React, { useReducer, useRef } from "react";
 import "./App.css";
 import SearchForm from "./components/SearchForm";
+import {Dropdown} from 'react-bootstrap';
+import {DropdownButton} from 'react-bootstrap';
 
 function TodoList() {
   const inputRef = useRef();
@@ -62,13 +64,19 @@ function TodoList() {
           </li>
         ))}
       </ul>
-      <SearchForm
-          //handleFormSubmit={handleSubmit}
-          //results={inputRef}
-        />
+      <SearchForm>
+
+      </SearchForm>
+
+      <DropdownButton id="dropdown-basic-button" title="Search By">
+      <Dropdown.Item href="#/action-1">Job Title</Dropdown.Item>
+      <Dropdown.Item href="#/action-2">First Name</Dropdown.Item>
+      <Dropdown.Item href="#/action-3">Last Name</Dropdown.Item>
+    </DropdownButton>
 
 
-    </div>
+
+      </div>
   );
 }
 
